@@ -3,8 +3,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Persistence.Contexts
 {
-    public class TaskItemDbContext(DbContextOptions<TaskItemDbContext> options) : DbContext(options)
+    public class TaskItemDbContext : DbContext
     {
+        public TaskItemDbContext(DbContextOptions<TaskItemDbContext> options) : base(options)
+        {
+        }
+
         public DbSet<TaskItem> TaskItems { get; set; }
     }
 }
