@@ -1,4 +1,5 @@
 ﻿using Application.Contracts.Persistence;
+using Application.Exceptions;
 using AutoMapper;
 using MediatR;
 
@@ -19,6 +20,11 @@ namespace Application.Features.TaskItems.Queries.GetTaskItemDetailsRequest
         {
             // Query the database
             var entity = await _repository.GetByIdAsync(request.Id);
+
+            if (entity == null)
+            {
+                throw new NotFoundException(nameof(entity), request.Id.ToString());
+            }
 
             var result = _mapper.Map<GetTaskItemDetailsDto>(entity);
 

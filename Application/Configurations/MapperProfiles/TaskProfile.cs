@@ -1,5 +1,4 @@
-﻿using Application.Features.TaskItems.Queries.GetTaskItemDetailsRequest;
-using AutoMapper;
+﻿using AutoMapper;
 using Domain.Entities;
 
 namespace Application.Configurations.MapperProfiles
@@ -8,10 +7,10 @@ namespace Application.Configurations.MapperProfiles
     {
         public TaskProfile()
         {
-            CreateMap<TaskItem, Features.TaskItems.Commands.CreateTaskItem.CreateTaskItemRequest>();
-            CreateMap<TaskItem, Features.TaskItems.Commands.UpdateTaskItem.UpdateTaskItemRequest>();
+            CreateMap<Features.TaskItems.Commands.CreateTaskItem.CreateTaskItemRequest, TaskItem>();
+            CreateMap<Features.TaskItems.Commands.UpdateTaskItem.UpdateTaskItemRequest, TaskItem>();
             CreateMap<Features.TaskItems.Queries.GetAllTaskItems.GetAllTaskItemsDto, TaskItem>().ReverseMap();
-            CreateMap<GetTaskItemDetailsDto, TaskItem>();
+            CreateMap<Features.TaskItems.Queries.GetTaskItemDetailsRequest.GetTaskItemDetailsDto, TaskItem>();
         }
     }
 }

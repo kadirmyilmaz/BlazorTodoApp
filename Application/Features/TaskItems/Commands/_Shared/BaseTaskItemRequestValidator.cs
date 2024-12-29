@@ -10,10 +10,6 @@ namespace Application.Features.TaskItems.Commands._Shared
                 .NotNull()
                 .NotEmpty().WithMessage("{PropertyName} is required.")
                 .MaximumLength(100).WithMessage("{PropertyName} must not exceed 100 characters.");
-
-            RuleFor(x => x.Description)
-                .NotNull()
-                .NotEmpty().WithMessage("{PropertyName} is required.");
         }
     }
 }
