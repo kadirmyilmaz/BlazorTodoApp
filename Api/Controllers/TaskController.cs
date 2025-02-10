@@ -27,7 +27,7 @@ namespace API.Controllers
         }
 
         [HttpGet("id")]
-        public async Task<ActionResult<GetTaskItemDetailsDto>> Get(int id)
+        public async Task<ActionResult<GetTaskItemDetailsDto>> Get(Guid id)
         {
             var result = await _mediator.Send(new GetTaskItemDetailsRequest(id));
             return Ok(result);
@@ -48,7 +48,7 @@ namespace API.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult> Delete(int id)
+        public async Task<ActionResult> Delete(Guid id)
         {
             var command = new DeleteTaskItemRequest(id);
             await _mediator.Send(command);

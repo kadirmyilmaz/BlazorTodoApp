@@ -2,7 +2,7 @@
 
 namespace Application.Features.TaskItems.Queries.GetTaskItemDetailsRequest
 {
-    public record GetTaskItemDetailsRequest(int Id) : IRequest<GetTaskItemDetailsDto>
+    public record GetTaskItemDetailsRequest(Guid Id) : IRequest<GetTaskItemDetailsDto>
     {
     }
 }

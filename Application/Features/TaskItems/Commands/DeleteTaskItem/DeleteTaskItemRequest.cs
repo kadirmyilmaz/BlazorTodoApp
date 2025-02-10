@@ -2,5 +2,5 @@
 
 namespace Application.Features.TaskItems.Commands.DeleteTaskItem
 {
-    public record DeleteTaskItemRequest(int Id) : IRequest<Unit>;
+    public record DeleteTaskItemRequest(Guid Id) : IRequest<Unit>;
 }

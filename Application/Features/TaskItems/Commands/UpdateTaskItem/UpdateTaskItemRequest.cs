@@ -5,8 +5,9 @@ namespace Application.Features.TaskItems.Commands.UpdateTaskItem
 {
     public class UpdateTaskItemRequest : BaseTaskItemRequest, IRequest<Unit>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string? UpdatedBy { get; set; }
         public DateTime? UpdatedDate { get; set; } = DateTime.Now;
+        public DateTime? CompletedAt { get; set; }
     }
 }

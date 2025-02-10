@@ -8,7 +8,7 @@ namespace Application.Features.TaskItems.Commands.UpdateTaskItem
         public UpdateTaskItemRequestValidator()
         {
             RuleFor(t => t.Id)
-                .GreaterThanOrEqualTo(1);
+                .NotNull().WithMessage("{PropertyName} is required.");
 
             Include(new BaseTaskItemRequestValidator());
         }

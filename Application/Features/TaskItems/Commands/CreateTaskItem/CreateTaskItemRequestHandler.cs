@@ -6,7 +6,7 @@ using MediatR;
 
 namespace Application.Features.TaskItems.Commands.CreateTaskItem
 {
-    public class CreateTaskItemRequestHandler : IRequestHandler<CreateTaskItemRequest, int>
+    public class CreateTaskItemRequestHandler : IRequestHandler<CreateTaskItemRequest, Guid>
     {
         private readonly IMapper _mapper;
         private readonly ITaskItemRepository _repository;
@@ -17,7 +17,7 @@ namespace Application.Features.TaskItems.Commands.CreateTaskItem
             _repository = repository;
         }
 
-        public async Task<int> Handle(CreateTaskItemRequest request, CancellationToken cancellationToken)
+        public async Task<Guid> Handle(CreateTaskItemRequest request, CancellationToken cancellationToken)
         {
             // Validate the incoming data
             var validator = new CreateTaskItemRequestValidator(_mapper, _repository);
