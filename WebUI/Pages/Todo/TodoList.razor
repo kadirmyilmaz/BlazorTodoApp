@@ -1,0 +1,32 @@
+﻿@page "/todolist"
+
+@inject ITaskItemDataService TaskItemDataService
+
+<h1 class="text-center mb-3">Your daily tasks</h1>
+
+@if (taskItems is not null && taskItems.Count > 0)
+{
+    <ul>
+        @foreach (var item in taskItems)
+        {
+            <li>@item.Title (@item.Id) - Completed: @item.IsCompleted</li>
+        })
+    </ul>
+}
+else
+{
+    <p>No items found.</p>
+}
+
+
+@code {
+    private List<GetAllTaskItemsDto> taskItems = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Call the data service, which calls the controller endpoint
+        taskItems = await TaskItemDataService.GetAllAsync();
+    }
+}
+
+<a class="btn btn-primary mb-3" href="/Todo/Create">Add new task</a>

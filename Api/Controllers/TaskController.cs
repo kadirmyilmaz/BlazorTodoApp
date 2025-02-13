@@ -20,7 +20,7 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<GetAllTaskItemsDto>>> Get()
+        public async Task<ActionResult<List<GetAllTaskItemsDto>>> GetAllAsync()
         {
             var result = await _mediator.Send(new GetAllTaskItemsRequest());
             return Ok(result);

@@ -1,12 +1,9 @@
-﻿using Application.Common.Mappings;
-using Domain.Entities;
-
-namespace Application.Features.TaskItems.Queries.GetAllTaskItems
+﻿namespace Application.Features.TaskItems.Queries.GetAllTaskItems
 {
-    public class GetAllTaskItemsDto : IMapFrom<TaskItem>
+    public class GetAllTaskItemsDto
     {
-        public int Id { get; set; }
-        public string Title { get; set; }
+        public Guid Id { get; set; }
+        public required string Title { get; set; }
         public string Description { get; set; }
         public bool IsCompleted { get; set; }
     }

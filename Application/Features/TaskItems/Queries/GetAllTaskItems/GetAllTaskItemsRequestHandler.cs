@@ -15,7 +15,7 @@ namespace Application.Features.TaskItems.Queries.GetAllTaskItems
             _repository = repository;
         }
 
-        public async Task<List<GetAllTaskItemsDto>> Handle(GetAllTaskItemsRequest query, CancellationToken cancellationToken)
+        public async Task<List<GetAllTaskItemsDto>> Handle(GetAllTaskItemsRequest request, CancellationToken cancellationToken)
         {
             var taskItems = await _repository.GetAllAsync();
             return _mapper.Map<List<GetAllTaskItemsDto>>(taskItems);
